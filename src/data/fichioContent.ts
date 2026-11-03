@@ -1,0 +1,222 @@
+import { SpecialtyData, SecurityFeature, ComparisonRow } from '../types';
+
+/** Fuente única de los datos de producto que también se muestran en la UI. */
+export const PRODUCT_VERSION = '0.1.2';
+export const TEST_COUNTS = { rust: 138, frontend: 73 };
+export const CORE_LICENSE = 'AGPL-3.0-or-later';
+
+export const SPECIALTIES: SpecialtyData[] = [
+  {
+    id: 'medicina',
+    title: 'Medicina General y Especialidades',
+    subtitle: 'Consultorios médicos, pediatría, cardiología y medicina interna',
+    tagline: 'Filiación completa, antecedentes clínicos y evoluciones firmadas con validez legal.',
+    iconName: 'Stethoscope',
+    entityType: 'Humano',
+    imageSrc: '/src/assets/images/hero_fichio_workstation_1791977202707.jpg',
+    imageAlt: 'Estación de trabajo médico con monitor y estetoscopio',
+    samplePatient: {
+      nombre: 'Carlos E. Méndez',
+      identificador: 'DNI 32.841.902',
+      edad: '44 años',
+      diagnosticoPrincipal: 'Hipertensión Arterial Grado I · Dislipidemia',
+      ultimaEvolucion: 'Control trimestral de presión. Buen cumplimiento del tratamiento.',
+      alergias: ['Penicilina', 'Sulfas'],
+      medicacionActual: ['Enalapril 10mg / día', 'Atorvastatina 20mg / noche'],
+    },
+    sampleSoap: {
+      subjetivo: 'Paciente acude a control rutinario. Refiere buen descanso nocturno y ausencia de cefaleas matinales. Sin palpitaciones ni disnea.',
+      objetivo: 'PA: 122/78 mmHg en MSD. FC: 68 lpm rítmico. IMC: 26.2. Auscultación cardiorrespiratoria sin soplos ni ruidos agregados.',
+      analisis: 'Evolución favorable bajo pauta farmacológica habitual. Tensión arterial dentro de metas terapéuticas.',
+      plan: 'Mantener esquema de Enalapril 10mg/24h. Solicitar laboratorio de control (perfil lipídico y función renal). Próximo turno en 90 días.',
+    },
+  },
+  {
+    id: 'veterinaria',
+    title: 'Veterinaria y Pequeños Animales',
+    subtitle: 'Clínicas veterinarias y atención a domicilio de animales de compañía',
+    tagline: 'Esquema aplanado Paciente-Tutor: nombre del animal, especie, raza y responsable legal.',
+    iconName: 'PawPrint',
+    entityType: 'Animal + Tutor',
+    imageSrc: '/src/assets/images/specialty_veterinary_care_1791977204225.jpg',
+    imageAlt: 'Consultorio veterinario moderno con mesa de exploración y tutor',
+    samplePatient: {
+      nombre: 'Milo (Canino · Golden Retriever)',
+      identificador: 'Chip #981098102348',
+      extraLabel: 'Tutor Responsable',
+      extraValor: 'Sofía Martínez (DNI 38.102.441)',
+      edad: '3 años y 2 meses',
+      diagnosticoPrincipal: 'Control anual de vacunación · Peso 31.4 kg',
+      ultimaEvolucion: 'Examen físico general sin hallazgos patológicos. Aplicación de antirrábica y séxtuple.',
+      alergias: ['Hipersensibilidad a picadura de pulga (DAPP)'],
+      medicacionActual: ['Nexgard Spectra mensual', 'Omega 3 articular'],
+    },
+    sampleSoap: {
+      subjetivo: 'Tutor refiere apetito normal y actividad física habitual. No presenta episodios de vómito ni diarrea.',
+      objetivo: 'Tº 38.6 ºC. Mucosas rosadas TLLC < 2 seg. Ganglios submandibulares normales. Otoscopía bilateral limpia.',
+      analisis: 'Paciente canino normopeso con estado general óptimo para inmunización anual.',
+      plan: 'Aplicación de refuerzo séxtuple (Nobivac DHPPiL) y antirrábica. Desparasitación interna programada.',
+    },
+  },
+  {
+    id: 'psicologia',
+    title: 'Psicología y Psicoterapia',
+    subtitle: 'Terapia individual, parejas, infanto-juvenil y psiquiatría',
+    tagline: 'Privacidad absoluta. Notas clínicas cifradas en RAM que ningún tercero puede interceptar.',
+    iconName: 'Brain',
+    entityType: 'Confidencial',
+    imageSrc: '/src/assets/images/specialty_psychology_office_1791977203929.jpg',
+    imageAlt: 'Consultorio privado de psicología con sillón y ambiente tranquilo',
+    samplePatient: {
+      nombre: 'Laura B. (Registro Anónimo Cifrado)',
+      identificador: 'Expediente #P-2026-88',
+      edad: '31 años',
+      diagnosticoPrincipal: 'Trastorno de Ansiedad Generalizada (F41.1) en remisión parcial',
+      ultimaEvolucion: 'Sesión enfocada en reestructuración cognitiva y registro de pensamientos automáticos.',
+      alergias: ['No refiere'],
+      medicacionActual: ['Sertralina 50mg (indicada por psiquiatra tratante)'],
+    },
+    sampleSoap: {
+      subjetivo: 'Refiere disminución en rumiación nocturna durante la última quincena tras implementar pausas activas laborales.',
+      objetivo: 'Orientada en tiempo y espacio. Discurso fluido con afecto congruente. Nivel de ansiedad autorreportado: 3/10.',
+      analisis: 'Progresión positiva en adquisición de herramientas de regulación emocional.',
+      plan: 'Continuar con registro conductual de disparadores. Próxima sesión en 7 días.',
+    },
+  },
+  {
+    id: 'odontologia_kinesio',
+    title: 'Odontología, Kinesiología y Nutrición',
+    subtitle: 'Profesionales independientes, fisioterapeutas y centros de rehabilitación',
+    tagline: 'Plantillas adaptables (SOAP, Alergias, Medicación, Condiciones) sin fricciones.',
+    iconName: 'Activity',
+    entityType: 'Humano',
+    samplePatient: {
+      nombre: 'Marcos A. Rossi',
+      identificador: 'DNI 29.540.118',
+      edad: '48 años',
+      diagnosticoPrincipal: 'Tendinopatía rotuliana rodilla derecha (Post-esfuerzo)',
+      ultimaEvolucion: 'Sesión 4 de rehabilitación kinesiológica. Mejoría en rango de flexión pasiva.',
+      alergias: ['Ibuprofeno'],
+      medicacionActual: ['Paracetamol 1g en rescate'],
+    },
+    sampleSoap: {
+      subjetivo: 'Reporta menor dolor al descender escaleras (EVA 4/10 frente a 7/10 inicial).',
+      objetivo: 'Goniometría flexión activa 125º. Palpación del polo inferior de la rótula con sensibilidad moderada.',
+      analisis: 'Respuesta favorable a ejercicios excéntricos de cuádriceps.',
+      plan: 'Terapia manual descontracturante, electroanalgesia y progresión de carga excéntrica bilateral.',
+    },
+  },
+];
+
+export const SECURITY_PILLARS: SecurityFeature[] = [
+  {
+    number: '01',
+    title: 'Criptografía en RAM con Zero-Knowledge Parcial',
+    mechanism: 'AES-GCM-256 + Argon2id (wrap de DataKey)',
+    benefit: 'Sin la contraseña o la frase semilla, la base local es incomprensible.',
+    technicalBadge: 'Cifrado en reposo + RAM',
+    detail: 'La DataKey se desenvuelve en memoria al abrir la bóveda y envuelve los datos clínicos con AES-GCM-256. Al cerrar sesión se descarta y los buffers Zeroizing se ponen a cero (best-effort). Protege el disco: no aísla criptográficamente a los co-usuarios de la misma instalación.',
+    codePath: 'src-tauri/src/security/crypto.rs',
+  },
+  {
+    number: '02',
+    title: 'Firma Digital Asimétrica por Entry',
+    mechanism: 'Ed25519 (Dalek) + JSON Canónico',
+    benefit: 'No-Repudio e integridad verificable de cada evolución.',
+    technicalBadge: 'Append-Only Inmutable',
+    detail: 'Cada evolución queda sellada con la clave privada Ed25519 del profesional sobre el JSON canónico de todos los campos persistidos. La corrección se hace con nuevas entradas: no existe update ni delete de historias clínicas.',
+    codePath: 'src-tauri/src/security/crypto.rs',
+  },
+  {
+    number: '03',
+    title: 'Búsqueda por Índice Ciego',
+    mechanism: 'HMAC-SHA256 Blind Index',
+    benefit: 'Busca pacientes por DNI sin descifrar la base de datos.',
+    technicalBadge: 'Privacidad Operativa',
+    detail: 'El índice ciego se deriva con HMAC-SHA256 y una clave derivada de la DataKey sobre el DNI normalizado. Permite búsquedas exactas e instantáneas sin exponer el dato ni necesitar una sal que respaldar o sincronizar.',
+    codePath: 'src-tauri/src/security/crypto.rs',
+  },
+  {
+    number: '04',
+    title: 'Recuperación Soberana Break-Glass',
+    mechanism: 'Frase Semilla de 6 Palabras + Argon2id',
+    benefit: 'Recupera el acceso ante emergencias sin backdoors en la nube.',
+    technicalBadge: 'Recuperación Auditada',
+    detail: 'La frase de 6 palabras vive en papel, nunca en disco. Verifica la posesión contra el master wrap (.data_key.master) con Argon2id y la sal de dominio fichio/seed-kdf/v1; restablece la contraseña del administrador activo más antiguo y queda registrada en audit_log. La DataKey no cambia.',
+    codePath: 'src-tauri/src/security/seed.rs',
+  },
+  {
+    number: '05',
+    title: 'Autonomía 100% Offline (Local-First)',
+    mechanism: 'Rust + Tauri v2 + SQLite WAL (rusqlite)',
+    benefit: 'Atiende sin interrupciones, con o sin conexión a internet.',
+    technicalBadge: 'Latencia local < 0.5 ms',
+    detail: 'No dependes de servidores caídos, enlaces lentos ni suscripciones web que bloqueen tus fichas. La base es un SQLite embebido en modo WAL, accedido directamente desde Rust sin servidor de base de datos ni plugins intermedios.',
+    codePath: 'src-tauri/src/db/database.rs',
+  },
+  {
+    number: '06',
+    title: 'Exportación Abierta a Markdown',
+    mechanism: 'Render en Rust + Ed25519 + SHA-256',
+    benefit: 'Tus fichas son tuyas para siempre, sin formatos cautivos.',
+    technicalBadge: 'Libre de Vendor Lock-in',
+    detail: 'Exporta la historia completa a exports/ como .md cronológico, con labels y orden del esquema clínico. El documento completo se firma con Ed25519 y lleva SHA-256 de integridad; el evento export_emitted queda en auditoría solo con metadata (subject_id, entries y hash).',
+    codePath: 'src-tauri/src/export/render.rs',
+  },
+];
+
+export const COMPARISON_TABLE: ComparisonRow[] = [
+  {
+    feature: 'Soberanía de los datos',
+    fichio: 'Almacenados 100% en tu propio disco duro bajo tu custodia',
+    traditional: 'Alojados en servidores en la nube de un tercero',
+    advantage: true,
+  },
+  {
+    feature: 'Funcionamiento sin conexión',
+    fichio: 'Autonomía total: consultas locales en < 0.5 ms sin internet',
+    traditional: 'Si se corta la conexión o se cae el servidor, no puedes atender',
+    advantage: true,
+  },
+  {
+    feature: 'Seguridad y Privacidad',
+    fichio: 'AES-GCM-256 + Blind Index con Zero-Knowledge Parcial',
+    traditional: 'Texto plano accesible por administradores y empleados del SaaS',
+    advantage: true,
+  },
+  {
+    feature: 'Validez Legal de Notas',
+    fichio: 'Firma Ed25519 por entrada y del documento exportado (Append-Only)',
+    traditional: 'Simples registros editables en bases de datos MySQL/Postgres',
+    advantage: true,
+  },
+  {
+    feature: 'Respaldos y Recuperación',
+    fichio: 'Carpeta local con manifest.json firmado (SHA-256 por archivo + Ed25519)',
+    traditional: 'Depende de la continuidad y la política del proveedor',
+    advantage: true,
+  },
+  {
+    feature: 'Acceso y Bloqueo',
+    fichio: 'La aplicación es tuya, no te pueden cortar el acceso',
+    traditional: 'Si dejas de pagar la suscripción mensual, pierdes tus fichas',
+    advantage: true,
+  },
+  {
+    feature: 'Portabilidad de Historias',
+    fichio: 'Markdown (.md) con firma Ed25519 del documento y SHA-256 de integridad',
+    traditional: 'Formatos propietarios o exportaciones limitadas a PDF con marca',
+    advantage: true,
+  },
+];
+
+export const TECH_SPECS = [
+  { label: 'Motor Criptográfico', value: 'Rust nativo (AES-GCM-256, Ed25519, Argon2id, SHA-256)' },
+  { label: 'Persistencia Local', value: 'SQLite (rusqlite) embebido en WAL, sin servidor de BD' },
+  { label: 'Modelo Clínico', value: 'Entries append-only firmadas; sin update ni delete' },
+  { label: 'Respaldos', value: 'manifest.json firmado (SHA-256 + Ed25519)' },
+  { label: 'Requisitos de Instalación', value: '~100 MB de disco; sin internet salvo instalar/actualizar' },
+  { label: 'Tests Automatizados', value: `${TEST_COUNTS.rust} tests en Rust + ${TEST_COUNTS.frontend} en frontend` },
+  { label: 'Compatibilidad de SO', value: 'Windows 10/11 (64-bit) y Linux (amd64); macOS en roadmap' },
+  { label: 'Licencia del Core', value: `${CORE_LICENSE} · dual licensing disponible` },
+];

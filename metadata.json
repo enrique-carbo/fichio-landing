@@ -1,0 +1,6 @@
+{
+  "name": "Fichio — Historia Clínica Digital Local-First",
+  "description": "Historia clínica digital Local-First con Zero-Knowledge Parcial: 100% offline, cifrado AES-GCM-256 y firmas Ed25519 para profesionales de la salud.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
