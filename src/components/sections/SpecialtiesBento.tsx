@@ -10,7 +10,7 @@ export const SpecialtiesBento: React.FC<SpecialtiesBentoProps> = ({ onSelectSpec
   return (
     <section id="especialidades" className="py-20 border-b border-neutral-200 dark:border-neutral-800">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        
+
         {/* Section Header */}
         <div className="max-w-3xl mb-12">
           <div className="text-xs font-semibold text-brand-700 dark:text-brand-400 tracking-wide mb-2">
@@ -26,7 +26,7 @@ export const SpecialtiesBento: React.FC<SpecialtiesBentoProps> = ({ onSelectSpec
 
         {/* Asymmetric Bento Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          
+
           {/* Card 1: Medicina General & Especialidades (Span 2 on lg) */}
           <div className="lg:col-span-2 rounded-2xl border border-neutral-200 dark:border-neutral-800 bg-white dark:bg-neutral-900 p-6 sm:p-8 flex flex-col justify-between hover:border-neutral-300 dark:hover:border-neutral-700 transition-colors">
             <div>
@@ -85,7 +85,7 @@ export const SpecialtiesBento: React.FC<SpecialtiesBentoProps> = ({ onSelectSpec
           <div className="rounded-2xl border border-neutral-200 dark:border-neutral-800 bg-white dark:bg-neutral-900 overflow-hidden flex flex-col justify-between hover:border-neutral-300 dark:hover:border-neutral-700 transition-colors">
             <div className="relative aspect-4/3 w-full bg-neutral-100 dark:bg-neutral-800 overflow-hidden">
               <img
-                src="/src/assets/images/specialty_veterinary_care_1791977204225.jpg"
+                src="/images/specialty_veterinary_care.jpg"
                 alt="Consultorio veterinario con canino y tutor"
                 className="w-full h-full object-cover transition-transform duration-500 hover:scale-105"
                 referrerPolicy="no-referrer"
@@ -128,7 +128,7 @@ export const SpecialtiesBento: React.FC<SpecialtiesBentoProps> = ({ onSelectSpec
           <div className="rounded-2xl border border-neutral-200 dark:border-neutral-800 bg-white dark:bg-neutral-900 overflow-hidden flex flex-col justify-between hover:border-neutral-300 dark:hover:border-neutral-700 transition-colors">
             <div className="relative aspect-4/3 w-full bg-neutral-100 dark:bg-neutral-800 overflow-hidden">
               <img
-                src="/src/assets/images/specialty_psychology_office_1791977203929.jpg"
+                src="/images/specialty_psychology_office.jpg"
                 alt="Consultorio privado de psicología y salud mental"
                 className="w-full h-full object-cover transition-transform duration-500 hover:scale-105"
                 referrerPolicy="no-referrer"

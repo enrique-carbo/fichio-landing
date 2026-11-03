@@ -16,7 +16,7 @@ export const Hero: React.FC<HeroProps> = ({ onOpenDownload, onOpenDemo }) => {
   return (
     <section className="relative overflow-hidden pt-12 pb-20 lg:pt-16 lg:pb-28 border-b border-neutral-200 dark:border-neutral-800">
       {/* Background architectural grid pattern */}
-      <div 
+      <div
         className="absolute inset-0 pointer-events-none opacity-[0.03] dark:opacity-[0.05]"
         style={{
           backgroundImage: `radial-gradient(currentColor 1px, transparent 1px)`,
@@ -26,10 +26,10 @@ export const Hero: React.FC<HeroProps> = ({ onOpenDownload, onOpenDemo }) => {
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center">
-          
+
           {/* Left Column: Value Proposition & Copy */}
           <div className="lg:col-span-7 space-y-6">
-            
+
             {/* Human unboxed metadata lead-in */}
             <div className="flex flex-wrap items-center gap-2 text-xs font-medium text-neutral-500 dark:text-neutral-400">
               <span className="text-brand-700 dark:text-brand-400 font-semibold">Fichio v{PRODUCT_VERSION}</span>
@@ -107,7 +107,7 @@ export const Hero: React.FC<HeroProps> = ({ onOpenDownload, onOpenDemo }) => {
           {/* Right Column: Visual Mockup with Fallback & Interactive Card */}
           <div className="lg:col-span-5">
             <div className="relative rounded-2xl border border-neutral-200 dark:border-neutral-800 bg-white dark:bg-neutral-900 p-2 sm:p-3 shadow-xl transition-all">
-              
+
               {/* Window Header Decor */}
               <div className="flex items-center justify-between px-3 py-2 border-b border-neutral-100 dark:border-neutral-800 text-xs text-neutral-500">
                 <div className="flex items-center gap-1.5">
@@ -125,12 +125,12 @@ export const Hero: React.FC<HeroProps> = ({ onOpenDownload, onOpenDemo }) => {
               {/* Main Image with fallback */}
               <div className="relative aspect-video w-full overflow-hidden rounded-lg bg-neutral-100 dark:bg-neutral-950 mt-2">
                 <img
-                  src="/src/assets/images/hero_fichio_workstation_1791977202707.jpg"
+                  src="/images/hero_fichio_workstation.jpg"
                   alt="Estación de trabajo Fichio en consultorio moderno"
                   className="w-full h-full object-cover transition-transform duration-700 hover:scale-105"
                   referrerPolicy="no-referrer"
                 />
-                
+
                 {/* Floating clinical card snippet based on selected specialty */}
                 <div className="absolute inset-x-3 bottom-3 p-3.5 rounded-xl bg-white/95 dark:bg-neutral-900/95 backdrop-blur-md border border-neutral-200/90 dark:border-neutral-700/90 shadow-lg text-xs space-y-1.5">
                   <div className="flex items-center justify-between">
