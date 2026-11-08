@@ -11,6 +11,7 @@ import { SecurityArchitecture } from './components/sections/SecurityArchitecture
 import { InteractiveDemo } from './components/sections/InteractiveDemo';
 import { FeatureComparison } from './components/sections/FeatureComparison';
 import { TechSpecs } from './components/sections/TechSpecs';
+import { ProfessionalGuide } from './components/sections/ProfessionalGuide';
 import { DownloadWaitlist } from './components/sections/DownloadWaitlist';
 import { Footer } from './components/layout/Footer';
 import { SpecialtyId } from './types';
@@ -59,6 +60,8 @@ export default function App() {
         <FeatureComparison />
 
         <TechSpecs />
+
+        <ProfessionalGuide />
 
         <DownloadWaitlist />
       </main>

@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
 import { Download, Apple, Monitor, HardDrive, CheckCircle2, MessageCircle } from 'lucide-react';
-import { PRODUCT_VERSION } from '../../data/fichioContent';
+import { PRODUCT_VERSION, RELEASE_HIGHLIGHTS } from '../../data/fichioContent';
 
 const RELEASES_URL = 'https://github.com/enrique-carbo/historia-clinica-tauri/releases';
+const RELEASE_NOTES_URL = `${RELEASES_URL}/tag/v${PRODUCT_VERSION}`;
 
 // Formato internacional sin "+" ni separadores, requerido por wa.me
 const WHATSAPP_NUMBER = '5493434718183';
@@ -67,13 +68,16 @@ export const DownloadWaitlist: React.FC = () => {
         {/* Section Header */}
         <div className="max-w-3xl mb-12">
           <div className="text-xs font-semibold text-brand-700 dark:text-brand-400 tracking-wide mb-2">
-            06. DESCARGA E INSTALACIÓN (BETA)
+            07. DESCARGA E INSTALACIÓN (BETA)
           </div>
           <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold tracking-tight text-neutral-950 dark:text-white" style={{ textWrap: 'balance' }}>
             Obtén Fichio para Windows o Linux.
           </h2>
           <p className="mt-3 text-base text-neutral-600 dark:text-neutral-300">
             Beta {PRODUCT_VERSION} compilada en Rust con Tauri v2. Los instaladores se publican en GitHub Releases; macOS está en el roadmap.
+          </p>
+          <p className="mt-2 text-xs text-neutral-500 dark:text-neutral-400">
+            Actualización sin migraciones: la base y los respaldos de 0.1.x se abren tal cual. Respaldá antes de actualizar.
           </p>
           <div className="mt-4 flex flex-wrap items-center gap-2 text-xs">
             <span className="px-2.5 py-1 rounded-full bg-brand-50 dark:bg-brand-950/60 border border-brand-200 dark:border-brand-800/60 text-brand-800 dark:text-brand-300 font-semibold">
@@ -82,7 +86,7 @@ export const DownloadWaitlist: React.FC = () => {
             <span className="px-2.5 py-1 rounded-full bg-brand-50 dark:bg-brand-950/60 border border-brand-200 dark:border-brand-800/60 text-brand-800 dark:text-brand-300 font-semibold">
               Fichio Vet · veterinaria
             </span>
-            <span className="text-neutral-500 dark:text-neutral-400">Dos compilaciones, el mismo motor local-first.</span>
+            <span className="text-neutral-500 dark:text-neutral-400">Dos compilaciones coinstalables, cada una con su propia base.</span>
           </div>
         </div>
 
@@ -129,7 +133,7 @@ export const DownloadWaitlist: React.FC = () => {
                 Windows 10 / 11
               </h3>
               <p className="text-xs text-neutral-500 mt-1">
-                Instalador .exe de 64-bit para Windows 10/11. Sin certificado comercial en beta: SmartScreen puede advertir.
+                Instaladores .exe de 64-bit para Fichio Care y Fichio Vet. Sin certificado comercial en beta: SmartScreen puede advertir.
               </p>
               <div className="mt-4 text-xs font-mono text-neutral-400 space-y-1">
                 <div>Versión: {PRODUCT_VERSION} · .exe 64-bit</div>
@@ -160,12 +164,15 @@ export const DownloadWaitlist: React.FC = () => {
                 Linux Desktop
               </h3>
               <p className="text-xs text-neutral-500 mt-1">
-                Paquetes .deb para Debian/Ubuntu y .AppImage universal para amd64.
+                Paquetes .deb y .AppImage para amd64, en versiones Fichio Care y Fichio Vet.
               </p>
               <div className="mt-4 text-xs font-mono text-neutral-400 space-y-1">
                 <div>Versión: {PRODUCT_VERSION} · amd64</div>
-                <div>Formatos: .deb / .AppImage</div>
+                <div>Requiere glibc 2.39: Ubuntu 24.04+, Debian 13+, LMDE 7+</div>
               </div>
+              <p className="mt-2 text-[11px] text-amber-700 dark:text-amber-400">
+                No arranca en Debian 12, LMDE 6 ni Ubuntu 22.04.
+              </p>
             </div>
 
             <div className="mt-6 pt-4 border-t border-neutral-100 dark:border-neutral-800">
@@ -183,6 +190,34 @@ export const DownloadWaitlist: React.FC = () => {
 
         </div>
 
+        {/* Novedades de la release vigente */}
+        <div className="mb-10 rounded-2xl border border-neutral-200 dark:border-neutral-800 bg-white dark:bg-neutral-900 p-6 sm:p-8 shadow-xs">
+          <div className="flex flex-wrap items-baseline justify-between gap-2 mb-5">
+            <h3 className="text-base font-bold text-neutral-900 dark:text-neutral-100">
+              Novedades de la {PRODUCT_VERSION}
+            </h3>
+            <a
+              href={RELEASE_NOTES_URL}
+              target="_blank"
+              rel="noreferrer"
+              className="text-xs font-semibold text-brand-700 dark:text-brand-400 hover:underline underline-offset-4 whitespace-nowrap"
+            >
+              Ver notas completas →
+            </a>
+          </div>
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-5">
+            {RELEASE_HIGHLIGHTS.map((item) => (
+              <div key={item.title} className="flex items-start gap-3">
+                <CheckCircle2 className="w-4 h-4 text-brand-600 dark:text-brand-400 shrink-0 mt-0.5" />
+                <div>
+                  <div className="text-xs font-bold text-neutral-900 dark:text-neutral-100">{item.title}</div>
+                  <p className="mt-1 text-xs text-neutral-500 dark:text-neutral-400 leading-relaxed">{item.description}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+
         <div className="mb-10 p-4 rounded-xl bg-brand-50 dark:bg-brand-950/70 border border-brand-200 dark:border-brand-800 text-xs text-brand-800 dark:text-brand-300 flex flex-col sm:flex-row sm:items-center justify-between gap-3">
           <div className="flex items-start sm:items-center gap-2">
             <CheckCircle2 className="w-4 h-4 text-brand-600 shrink-0 mt-0.5 sm:mt-0" />
@@ -191,12 +226,12 @@ export const DownloadWaitlist: React.FC = () => {
             </span>
           </div>
           <a
-            href={RELEASES_URL}
+            href={RELEASE_NOTES_URL}
             target="_blank"
             rel="noreferrer"
             className="font-mono text-[11px] font-semibold whitespace-nowrap hover:underline"
           >
-            Ver releases →
+            Release v{PRODUCT_VERSION} →
           </a>
         </div>
 

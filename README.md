@@ -51,8 +51,19 @@ Construida con **React 19**, **TypeScript estricto**, **Tailwind CSS v4** y **Vi
 - Matriz de autorización por roles (RBAC): *Administrador* (cuentas y auditoría, sin vista clínica), *Asistente* (admisión y acceso de pacientes), *Profesional de la Salud* (EHR, entries y export) y *Paciente* (sin DataKey por diseño).
 - Licencia del Core: **AGPL-3.0-or-later** con posibilidad de licencia comercial dual.
 
-### 7. 💾 Centro de Descargas e Instalación (`DownloadWaitlist.tsx`) — Beta 0.1.2
+### 7. 📖 Guía del Profesional (`ProfessionalGuide.tsx`)
+- **Seis pasos interactivos** que resumen la [guía de usuario](./docs/guia-usuario.md) para un profesional: instalación, primer inicio y frase semilla, perfil profesional, pacientes, notas clínicas y export/respaldo.
+- Cada paso muestra **qué hacer** con los nombres de botones tal como aparecen en la app, un aviso de cuidado y la ruta de la interfaz (`Perfil → Datos del profesional`, `Entries → Nueva Entry`, etc.).
+- Navegación con la lista lateral, botones **Anterior / Siguiente** y contador de paso. El contenido vive en `GUIDE_STEPS` (`fichioContent.ts`) y el tipo `GuideStep`.
+- Tarjeta de **diferencias de Fichio Vet** (ficha, microchip, tutor, base propia) y accesos a la guía completa en GitHub y a Issues para reportar discrepancias.
+- La guía completa se enlaza al tag de la versión vigente (`docs/guia-usuario.md` en el repo del producto).
+
+### 8. 💾 Centro de Descargas e Instalación (`DownloadWaitlist.tsx`) — Beta 0.2.0
 - Tarjetas de descarga para **Windows 10/11** (.exe 64-bit) y **Linux amd64** (.deb / .AppImage) enlazadas a **GitHub Releases**; **macOS** aparece como *próximamente* (roadmap).
+- **Fichio Care** y **Fichio Vet** se publican como instaladores separados y son **coinstalables**: cada uno usa su propia base y pueden convivir en la misma PC.
+- **Linux**: los binarios se compilan en Ubuntu 24.04 y requieren **glibc 2.39** — funcionan en Ubuntu 24.04+, Debian 13+ y LMDE 7+; no arrancan en Debian 12 / Ubuntu 22.04. La tarjeta lo advierte explícitamente.
+- **Actualización sin migraciones**: la base y los respaldos de 0.1.x se abren tal cual, pero se recomienda respaldar antes de actualizar.
+- Bloque **“Novedades de la 0.2.0”** con los cuatro cambios de la release (nota SOAP desde la ficha, tema oscuro más legible, recordatorio de respaldos y “Acerca de”) y enlace a las notas completas del tag.
 - Aviso de beta sin certificado comercial en Windows (SmartScreen puede advertir) y requisito de WebView2.
 - Formulario de asesoramiento para clínicas con validación en tiempo real. Al enviarlo se genera un enlace `wa.me` con los datos del solicitante (nombre/consultorio, email, especialidad, sistema operativo y versión) y se abre WhatsApp con el mensaje precargado hacia el **+54 9 343 471-8183**. El estado de confirmación incluye un botón de reintento por si el navegador bloquea la pestaña y la opción de editar los datos. El número se cambia en un solo lugar: `WHATSAPP_NUMBER` en `DownloadWaitlist.tsx`.
 
@@ -104,6 +115,7 @@ La landing comunica **Zero-Knowledge Parcial**, no cifrado de extremo a extremo 
 │           ├── InteractiveDemo.tsx      # Sandbox clínico EHR con notas SOAP y exportación .md
 │           ├── FeatureComparison.tsx    # Tabla comparativa Local-First vs. Nube
 │           ├── TechSpecs.tsx            # Especificaciones técnicas, tests y roles RBAC
+│           ├── ProfessionalGuide.tsx    # Guía interactiva de 6 pasos para médicos y veterinarios
 │           └── DownloadWaitlist.tsx     # Tarjetas de descarga OS y formulario para clínicas
 ```
 

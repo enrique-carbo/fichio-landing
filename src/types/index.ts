@@ -38,6 +38,16 @@ export interface SecurityFeature {
   codePath: string;
 }
 
+export interface GuideStep {
+  number: string;
+  title: string;
+  summary: string;
+  intro: string;
+  actions: string[];
+  tip: string;
+  uiPath: string;
+}
+
 export interface ComparisonRow {
   feature: string;
   fichio: string;

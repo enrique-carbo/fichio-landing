@@ -81,6 +81,11 @@ export const Footer: React.FC = () => {
                   Especificaciones Técnicas
                 </a>
               </li>
+              <li>
+                <a href="#guia" className="hover:text-brand-600 dark:hover:text-brand-400 transition-colors">
+                  Guía del Profesional
+                </a>
+              </li>
             </ul>
           </div>
 

@@ -13,10 +13,11 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenDownload, onOpenDemo }) =>
 
   const navLinks = [
     { label: 'Especialidades', href: '#especialidades' },
-    { label: 'Criptografía y Bóveda', href: '#seguridad' },
+    { label: 'Seguridad', href: '#seguridad' },
     { label: 'Demo en Vivo', href: '#demostracion' },
     { label: 'Comparativa', href: '#comparativa' },
     { label: 'Arquitectura', href: '#arquitectura' },
+    { label: 'Guía', href: '#guia' },
   ];
 
   return (
@@ -42,8 +43,8 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenDownload, onOpenDemo }) =>
           </span>
         </a>
 
-        {/* Zone 2: 4–5 clean single-line nav links */}
-        <nav className="hidden lg:flex items-center gap-7 text-sm font-medium text-neutral-600 dark:text-neutral-300">
+        {/* Zone 2: clean single-line nav links (desktop desde xl) */}
+        <nav className="hidden xl:flex items-center gap-7 text-sm font-medium text-neutral-600 dark:text-neutral-300">
           {navLinks.map((link) => (
             <a
               key={link.href}
@@ -80,7 +81,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenDownload, onOpenDemo }) =>
           <button
             type="button"
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            className="lg:hidden p-2 text-neutral-600 dark:text-neutral-400 hover:text-neutral-900 dark:hover:text-neutral-100"
+            className="xl:hidden p-2 text-neutral-600 dark:text-neutral-400 hover:text-neutral-900 dark:hover:text-neutral-100"
             aria-label="Abrir menú de navegación"
           >
             {mobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
@@ -90,7 +91,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenDownload, onOpenDemo }) =>
 
       {/* Mobile Nav Drawer */}
       {mobileMenuOpen && (
-        <div className="lg:hidden border-b border-neutral-200 dark:border-neutral-800 bg-neutral-50 dark:bg-neutral-950 px-4 pt-2 pb-6 space-y-2">
+        <div className="xl:hidden border-b border-neutral-200 dark:border-neutral-800 bg-neutral-50 dark:bg-neutral-950 px-4 pt-2 pb-6 space-y-2">
           {navLinks.map((link) => (
             <a
               key={link.href}

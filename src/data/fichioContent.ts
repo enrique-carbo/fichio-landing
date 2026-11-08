@@ -1,9 +1,136 @@
-import { SpecialtyData, SecurityFeature, ComparisonRow } from '../types';
+import { SpecialtyData, SecurityFeature, ComparisonRow, GuideStep } from '../types';
 
 /** Fuente única de los datos de producto que también se muestran en la UI. */
-export const PRODUCT_VERSION = '0.1.2';
+export const PRODUCT_VERSION = '0.2.0';
 export const TEST_COUNTS = { rust: 138, frontend: 73 };
 export const CORE_LICENSE = 'AGPL-3.0-or-later';
+
+/** Guía del profesional — destilada de docs/guia-usuario.md. */
+export const GUIDE_STEPS: GuideStep[] = [
+  {
+    number: '01',
+    title: 'Instalación',
+    summary: 'Windows o Linux, Care o Vet',
+    intro:
+      'Descargá el instalador de la edición que uses desde GitHub Releases. En Windows el .exe todavía no tiene certificado comercial, así que SmartScreen va a advertir antes de dejarte instalar.',
+    actions: [
+      `Windows: ejecutá Fichio.Care_${PRODUCT_VERSION}_x64-setup.exe o Fichio.Vet_${PRODUCT_VERSION}_x64-setup.exe y elegí «Más información → Ejecutar de todas formas».`,
+      `Linux: instalá el .deb con sudo apt install ./Fichio.Care_${PRODUCT_VERSION}_amd64.deb, o usá el .AppImage con chmod +x y doble clic.`,
+      'Linux requiere glibc 2.39: Ubuntu 24.04+, Debian 13+ o LMDE 7+. No arranca en Debian 12 ni Ubuntu 22.04.',
+      'Care y Vet son coinstalables: cada uno mantiene su propia base y pueden convivir en la misma PC.',
+    ],
+    tip: 'Si Debian o Ubuntu se queja de dependencias, instalá libwebkit2gtk-4.1-0. Si falta WebView2 en Windows, el instalador lo descarga solo.',
+    uiPath: 'Instalador · GitHub Releases',
+  },
+  {
+    number: '02',
+    title: 'Primer inicio',
+    summary: 'Administrador y frase semilla',
+    intro:
+      'La primera vez la instalación está vacía. Creás la cuenta de administrador y configurás la frase semilla de 6 palabras, que es el respaldo maestro de la instalación.',
+    actions: [
+      'Creá el primer administrador con usuario y contraseña de mínimo 8 caracteres: esa cuenta da de alta al resto del equipo y resetea contraseñas.',
+      'Generá la frase semilla, anotá las 6 palabras en papel y verificá re-escribiéndolas.',
+      'La frase no se guarda en la app: solo existe en tu papel y en RAM mientras la usás.',
+      'Después del primer administrador no hay registro libre: todos los usuarios los crea el administrador desde Usuarios.',
+    ],
+    tip: 'No la guardes en fotos, archivos, WhatsApp ni en la PC. Si perdés la frase y la computadora se daña, los datos son irrecuperables por diseño.',
+    uiPath: 'Crear Primer Administrador → Tu Frase Semilla',
+  },
+  {
+    number: '03',
+    title: 'Tu perfil profesional',
+    summary: 'Nombre, profesión y matrícula',
+    intro:
+      'Tu identidad clínica es lo que queda impreso en cada nota firmada. Conviene completarla antes de crear la primera entry.',
+    actions: [
+      'Perfil → Datos del profesional → Editar: nombre completo, profesión y especialidad.',
+      'Agregá una o más matrículas con número y jurisdicción; la primera es la principal.',
+      'Completá domicilio, teléfono, correo y sitio o agenda, y guardá el perfil.',
+      'Desde la misma pestaña podés cambiar tu contraseña sin tocar la frase semilla.',
+    ],
+    tip: 'Si el perfil está incompleto, la pestaña Entries te va a pedir «Completar mi perfil» antes de dejarte firmar.',
+    uiPath: 'Perfil → Datos del profesional',
+  },
+  {
+    number: '04',
+    title: 'Pacientes',
+    summary: 'Alta, búsqueda exacta y acceso',
+    intro:
+      'El padrón de pacientes es el punto de partida: ahí se da de alta, se busca y se abre la ficha que alimenta la historia clínica y las notas.',
+    actions: [
+      'Nuevo → completá la ficha → Crear y Cifrar. El DNI en Care y el N° Registro / Microchip en Vet son obligatorios.',
+      'Buscá por texto o por documento exacto: el blind index encuentra al paciente correcto sin guardar el dato en claro.',
+      'Desde la ficha podés Editar, otorgar Acceso del paciente y revisar alergias y contacto.',
+      'El asistente de recepción puede dar de alta y buscar pacientes, pero no accede a la vista clínica.',
+    ],
+    tip: 'Las alergias son lo primero que muestra la ficha: revisalas antes de atender.',
+    uiPath: 'Paciente → Padrón de Pacientes',
+  },
+  {
+    number: '05',
+    title: 'Notas clínicas',
+    summary: 'SOAP, alergias, medicación y diagnóstico',
+    intro:
+      'Las entries son la evolución clínica: se cifran antes de tocar el disco y se firman con Ed25519. Son inmutables: no se editan ni se borran.',
+    actions: [
+      'Elegí la categoría: Nota SOAP, Alergia, Medicación o Diagnóstico, y completá título, estado y campos.',
+      'Desde la 0.2.0 también podés crear la nota SOAP desde la ficha del paciente, con la categoría ya fijada.',
+      'Cada card muestra «Firmado: nombre · profesión» y el estado Verificada o Sin verificar.',
+      'Filtrá por categoría o buscá por título para encontrar una evolución en el timeline.',
+    ],
+    tip: 'Para corregir un error, creá una entry nueva que deje constancia («Corrección de nota del …»): la anterior queda como registro firmado.',
+    uiPath: 'Entries → Nueva Entry · Historia Clínica',
+  },
+  {
+    number: '06',
+    title: 'Exportar y respaldar',
+    summary: 'Markdown firmado y copia semanal',
+    intro:
+      'La historia completa se exporta a Markdown firmado y el respaldo se genera en la carpeta que elijas: disco externo, NAS o nube.',
+    actions: [
+      'Entries → Exportar .md: el archivo incluye filiación, perfil, entries, SHA-256 y firma Ed25519 del documento completo.',
+      'Administración → Respaldos → Generar respaldo… y guardalo fuera de la PC.',
+      'El aviso de respaldos aparece a los 7 días sin copia o si nunca generaste una.',
+      'Cerrá la bóveda al terminar la jornada: las claves se borran de la memoria.',
+    ],
+    tip: 'Antes de actualizar a una versión nueva, respaldá. Restaurar reemplaza todos los datos actuales, así que usalo para recuperarte, no para deshacer cambios.',
+    uiPath: 'Entries → Exportar .md · Administración → Respaldos',
+  },
+];
+
+/** Diferencias de Fichio Vet respecto de Fichio Care (docs/guia-usuario.md §13). */
+export const VET_DIFFERENCES = [
+  'Ficha sin DNI, Seguro Salud ni Afiliado.',
+  'Especie, raza y sexo del animal, más Apellido / Tutor.',
+  'N° Registro / Microchip como documento y búsqueda exacta.',
+  'Teléfono y correo dentro del grupo Responsable - Tutor.',
+  'Base propia: Care y Vet conviven en la misma PC.',
+];
+
+/** Novedades de la release vigente (fuente: GitHub Releases). */
+export const RELEASE_HIGHLIGHTS = [
+  {
+    title: 'Nota SOAP desde la ficha del paciente',
+    description:
+      'El historial de la ficha tiene un botón Nueva nota SOAP que abre el formulario ahí mismo, con la categoría ya fijada. Si cambiás de paciente, se cierra solo: la nota nunca se firma en la ficha equivocada.',
+  },
+  {
+    title: 'Tema oscuro más legible',
+    description:
+      'Subimos un escalón el contraste de todos los textos. El texto de apoyo sobre paneles elevados pasó de ~3:1 a ~6:1.',
+  },
+  {
+    title: 'Recordatorio de respaldos',
+    description:
+      'Un banner muestra cuándo fue el último respaldo y avisa si pasaron 7 días o si nunca se generó uno.',
+  },
+  {
+    title: 'Versión y "Acerca de"',
+    description:
+      'La versión aparece en el pie del menú y en el login; al hacer clic se abre el detalle con licencia y acceso a descargas.',
+  },
+];
 
 export const SPECIALTIES: SpecialtyData[] = [
   {
@@ -215,8 +342,11 @@ export const TECH_SPECS = [
   { label: 'Persistencia Local', value: 'SQLite (rusqlite) embebido en WAL, sin servidor de BD' },
   { label: 'Modelo Clínico', value: 'Entries append-only firmadas; sin update ni delete' },
   { label: 'Respaldos', value: 'manifest.json firmado (SHA-256 + Ed25519)' },
-  { label: 'Requisitos de Instalación', value: '~100 MB de disco; sin internet salvo instalar/actualizar' },
+  {
+    label: 'Requisitos de Instalación',
+    value: '~100 MB de disco; sin internet salvo instalar/actualizar. Linux requiere glibc 2.39 (Ubuntu 24.04+, Debian 13+)',
+  },
   { label: 'Tests Automatizados', value: `${TEST_COUNTS.rust} tests en Rust + ${TEST_COUNTS.frontend} en frontend` },
-  { label: 'Compatibilidad de SO', value: 'Windows 10/11 (64-bit) y Linux (amd64); macOS en roadmap' },
+  { label: 'Compatibilidad de SO', value: 'Windows 10/11 (64-bit) y Linux amd64 con glibc 2.39+; macOS en roadmap' },
   { label: 'Licencia del Core', value: `${CORE_LICENSE} · dual licensing disponible` },
 ];
