@@ -60,7 +60,7 @@ export const Hero: React.FC<HeroProps> = ({ onOpenDownload, onOpenDemo }) => {
                 className="inline-flex items-center justify-center gap-2 px-6 py-3 text-sm font-semibold text-white bg-brand-700 hover:bg-brand-800 dark:bg-brand-700 dark:hover:bg-brand-600 rounded-lg shadow-sm hover:shadow transition-all whitespace-nowrap focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-500"
               >
                 <Download className="w-4 h-4" />
-                <span>Descargar para Windows o Linux</span>
+                <span>Descargar</span>
               </button>
 
               <button
@@ -110,7 +110,7 @@ export const Hero: React.FC<HeroProps> = ({ onOpenDownload, onOpenDemo }) => {
             <div className="relative rounded-2xl border border-neutral-200 dark:border-neutral-800 bg-white dark:bg-neutral-900 p-2 sm:p-3 shadow-xl transition-all">
 
               {/* Window Header Decor */}
-              <div className="flex items-center justify-between px-3 py-2 border-b border-neutral-100 dark:border-neutral-800 text-xs text-neutral-500">
+              <div className="flex flex-wrap gap-2 items-center justify-between px-3 py-2 border-b border-neutral-100 dark:border-neutral-800 text-xs text-neutral-500">
                 <div className="flex items-center gap-1.5">
                   <div className="w-2.5 h-2.5 rounded-full bg-red-400/80" />
                   <div className="w-2.5 h-2.5 rounded-full bg-amber-400/80" />

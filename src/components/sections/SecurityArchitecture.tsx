@@ -60,7 +60,7 @@ writeln!(writer, "Fichio · Verificado por firma digital Ed25519")?;`,
   return (
     <section id="seguridad" className="py-20 bg-neutral-100/70 dark:bg-neutral-900 text-neutral-900 dark:text-white border-b border-neutral-200 dark:border-neutral-800 relative overflow-hidden transition-colors">
       {/* Background cryptographic grid effect */}
-      <div 
+      <div
         className="absolute inset-0 pointer-events-none opacity-5 dark:opacity-10"
         style={{
           backgroundImage: `radial-gradient(#3981b8 1px, transparent 1px)`,
@@ -69,7 +69,7 @@ writeln!(writer, "Fichio · Verificado por firma digital Ed25519")?;`,
       />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
-        
+
         {/* Section Header */}
         <div className="max-w-3xl mb-14">
           <div className="text-xs font-semibold text-brand-700 dark:text-brand-400 tracking-wide mb-2">
@@ -88,7 +88,7 @@ writeln!(writer, "Fichio · Verificado por firma digital Ed25519")?;`,
 
         {/* Interactive Cryptographic Inspector */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
-          
+
           {/* Left Column: Interactive Pillar List */}
           <div className="lg:col-span-5 space-y-2">
             {SECURITY_PILLARS.map((pillar, idx) => {
@@ -126,7 +126,7 @@ writeln!(writer, "Fichio · Verificado por firma digital Ed25519")?;`,
           {/* Right Column: Deep-Dive Card + Live Rust Implementation Inspector */}
           <div className="lg:col-span-7">
             <div className="rounded-2xl border border-neutral-200 dark:border-neutral-700 bg-white dark:bg-neutral-950 p-6 sm:p-8 space-y-6 shadow-xl transition-colors">
-              
+
               {/* Header Info */}
               <div className="flex flex-wrap items-center justify-between gap-3 pb-4 border-b border-neutral-100 dark:border-neutral-800">
                 <div className="flex items-center gap-2">
@@ -156,7 +156,7 @@ writeln!(writer, "Fichio · Verificado por firma digital Ed25519")?;`,
 
               {/* Rust Engine Code View */}
               <div className="space-y-2 pt-2">
-                <div className="flex items-center justify-between text-xs text-neutral-500 dark:text-neutral-400">
+                <div className="flex flex-wrap gap-2 items-center justify-between text-xs text-neutral-500 dark:text-neutral-400">
                   <span className="flex items-center gap-1.5 font-mono text-[11px]">
                     <FileCode className="w-3.5 h-3.5 text-brand-600 dark:text-brand-400" />
                     {activePillar.codePath}
