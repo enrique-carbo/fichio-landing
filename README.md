@@ -38,6 +38,7 @@ Construida con **React 19**, **TypeScript estricto**, **Tailwind CSS v4** y **Vi
   5. **Autonomía 100% Offline (Local-First)**: SQLite (rusqlite) embebido en modo WAL, sin depender de internet ni de servidores caídos.
   6. **Exportación Abierta a Markdown**: Historia completa en `exports/`, firma Ed25519 del documento, SHA-256 de integridad y auditoría `export_emitted` sin PHI.
 - Inspector de snippets ilustrativos del Core en Rust, con la ruta real de cada módulo (`security/crypto.rs`, `security/seed.rs`, `db/database.rs`, `export/render.rs`).
+- **Aviso de custodia de llaves**: tarjeta destacada al final de la sección con la responsabilidad del usuario sobre la **frase semilla** (dos copias en papel, fuera de la PC), la **contraseña del administrador** y los **respaldos cifrados**, más el recordatorio explícito de que sin frase semilla los datos no se pueden recuperar (sin puerta trasera ni soporte).
 
 ### 5. 🏥 Adaptabilidad Multi-Especialidad (`SpecialtiesBento.tsx`)
 - **Medicina General**: Antecedentes, medicación activa y alertas de alergias.
@@ -60,6 +61,7 @@ Construida con **React 19**, **TypeScript estricto**, **Tailwind CSS v4** y **Vi
 
 ### 8. 💾 Centro de Descargas e Instalación (`DownloadWaitlist.tsx`) — Beta 0.2.0
 - Tarjetas de descarga para **Windows 10/11** (.exe 64-bit) y **Linux amd64** (.deb / .AppImage) enlazadas a **GitHub Releases**; **macOS** aparece como *próximamente* (roadmap).
+- **Aviso antes de instalar**: recuerda en ámbar que la frase semilla y la contraseña del administrador quedan bajo custodia del usuario, con enlace a la Guía del Profesional para ver el procedimiento.
 - **Fichio Care** y **Fichio Vet** se publican como instaladores separados y son **coinstalables**: cada uno usa su propia base y pueden convivir en la misma PC.
 - **Linux**: los binarios se compilan en Ubuntu 24.04 y requieren **glibc 2.39** — funcionan en Ubuntu 24.04+, Debian 13+ y LMDE 7+; no arrancan en Debian 12 / Ubuntu 22.04. La tarjeta lo advierte explícitamente.
 - **Actualización sin migraciones**: la base y los respaldos de 0.1.x se abren tal cual, pero se recomienda respaldar antes de actualizar.

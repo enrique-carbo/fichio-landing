@@ -34,7 +34,7 @@ export const GUIDE_STEPS: GuideStep[] = [
       'La frase no se guarda en la app: solo existe en tu papel y en RAM mientras la usás.',
       'Después del primer administrador no hay registro libre: todos los usuarios los crea el administrador desde Usuarios.',
     ],
-    tip: 'No la guardes en fotos, archivos, WhatsApp ni en la PC. Si perdés la frase y la computadora se daña, los datos son irrecuperables por diseño.',
+    tip: 'No la guardes en fotos, archivos, WhatsApp ni en la PC. Si perdés la frase y no podés abrir la instalación, los datos son irrecuperables por diseño: ni el equipo de Fichio puede recuperarlos. Guardá dos copias en papel, en lugares distintos y fuera de la PC.',
     uiPath: 'Crear Primer Administrador → Tu Frase Semilla',
   },
   {

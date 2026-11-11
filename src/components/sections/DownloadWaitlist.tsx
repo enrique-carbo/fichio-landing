@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Download, Apple, Monitor, HardDrive, CheckCircle2, MessageCircle } from 'lucide-react';
+import { Download, Apple, Monitor, HardDrive, CheckCircle2, MessageCircle, AlertTriangle } from 'lucide-react';
 import { PRODUCT_VERSION, RELEASE_HIGHLIGHTS } from '../../data/fichioContent';
 
 const RELEASES_URL = 'https://github.com/enrique-carbo/historia-clinica-tauri/releases';
@@ -88,6 +88,22 @@ export const DownloadWaitlist: React.FC = () => {
             </span>
             <span className="text-neutral-500 dark:text-neutral-400">Dos compilaciones coinstalables, cada una con su propia base.</span>
           </div>
+        </div>
+
+        {/* Custody reminder before installing */}
+        <div className="mb-10 rounded-xl border border-amber-300 dark:border-amber-800/60 bg-amber-50 dark:bg-amber-950/25 p-4 sm:p-5 flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+          <div className="flex items-start gap-3">
+            <AlertTriangle className="w-4 h-4 text-amber-600 dark:text-amber-400 shrink-0 mt-0.5" />
+            <p className="text-xs text-amber-900 dark:text-amber-200 leading-relaxed">
+              <strong>Antes de instalar:</strong> la frase semilla y la contraseña del administrador quedan bajo tu custodia. Sin ellas, ni Fichio puede recuperar tus datos.
+            </p>
+          </div>
+          <a
+            href="#guia"
+            className="text-xs font-semibold text-amber-800 dark:text-amber-300 hover:underline underline-offset-4 whitespace-nowrap shrink-0"
+          >
+            Ver la Guía del Profesional →
+          </a>
         </div>
 
         {/* 3 Native Platform Cards */}

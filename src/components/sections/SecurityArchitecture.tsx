@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Shield, Key, Lock, FileCode, CheckCircle, Database, RefreshCw, Cpu } from 'lucide-react';
+import { Shield, Key, Lock, FileCode, CheckCircle, Database, RefreshCw, Cpu, AlertTriangle } from 'lucide-react';
 import { SECURITY_PILLARS, TEST_COUNTS } from '../../data/fichioContent';
 
 export const SecurityArchitecture: React.FC = () => {
@@ -180,6 +180,63 @@ writeln!(writer, "Fichio · Verificado por firma digital Ed25519")?;`,
             </div>
           </div>
 
+        </div>
+
+        {/* Custody warning: local-first means user-held keys */}
+        <div className="mt-8 rounded-2xl border border-amber-300 dark:border-amber-800/60 bg-amber-50/70 dark:bg-amber-950/20 p-6 sm:p-8">
+          <div className="flex items-start gap-3">
+            <div className="p-2 rounded-lg bg-amber-100 dark:bg-amber-500/10 text-amber-700 dark:text-amber-400 shrink-0">
+              <AlertTriangle className="w-5 h-5" />
+            </div>
+            <div>
+              <h3 className="text-lg font-bold text-neutral-900 dark:text-white">
+                La soberanía también es una responsabilidad.
+              </h3>
+              <p className="mt-1 text-sm text-neutral-700 dark:text-neutral-300">
+                Fichio no tiene llave maestra: la tenés vos. Esa es la garantía y, al mismo tiempo, tu responsabilidad.
+              </p>
+            </div>
+          </div>
+
+          <div className="mt-6 grid grid-cols-1 md:grid-cols-3 gap-4">
+            <div className="rounded-xl bg-white/80 dark:bg-neutral-950/50 border border-amber-200/80 dark:border-amber-900/50 p-4">
+              <div className="flex items-center gap-2 text-sm font-semibold text-neutral-900 dark:text-neutral-100">
+                <Key className="w-4 h-4 text-amber-700 dark:text-amber-400 shrink-0" />
+                <span>Frase semilla · 6 palabras</span>
+              </div>
+              <p className="mt-2 text-xs text-neutral-600 dark:text-neutral-400 leading-relaxed">
+                Única llave para recuperar el acceso si olvidás la contraseña del administrador. Anotala en papel, hacé dos copias y guardalas en lugares distintos, fuera de la PC.
+              </p>
+            </div>
+
+            <div className="rounded-xl bg-white/80 dark:bg-neutral-950/50 border border-amber-200/80 dark:border-amber-900/50 p-4">
+              <div className="flex items-center gap-2 text-sm font-semibold text-neutral-900 dark:text-neutral-100">
+                <Lock className="w-4 h-4 text-amber-700 dark:text-amber-400 shrink-0" />
+                <span>Contraseña del administrador</span>
+              </div>
+              <p className="mt-2 text-xs text-neutral-600 dark:text-neutral-400 leading-relaxed">
+                Acceso diario a la instalación y gestión de usuarios y respaldos. Guardala en un gestor de contraseñas o en un sobre sellado; no confíes solo en la memoria.
+              </p>
+            </div>
+
+            <div className="rounded-xl bg-white/80 dark:bg-neutral-950/50 border border-amber-200/80 dark:border-amber-900/50 p-4">
+              <div className="flex items-center gap-2 text-sm font-semibold text-neutral-900 dark:text-neutral-100">
+                <RefreshCw className="w-4 h-4 text-amber-700 dark:text-amber-400 shrink-0" />
+                <span>Respaldos cifrados</span>
+              </div>
+              <p className="mt-2 text-xs text-neutral-600 dark:text-neutral-400 leading-relaxed">
+                Copia periódica fuera del equipo. Un respaldo sin la frase semilla (o la contraseña con la que se generó) no se puede abrir.
+              </p>
+            </div>
+          </div>
+
+          <div className="mt-5 p-4 rounded-xl bg-white/80 dark:bg-neutral-950/50 border border-amber-300 dark:border-amber-900/60 text-xs text-amber-900 dark:text-amber-200 flex items-start gap-3">
+            <AlertTriangle className="w-4 h-4 text-amber-600 dark:text-amber-400 shrink-0 mt-0.5" />
+            <span>
+              <strong>Si perdés la frase semilla y no podés abrir la instalación, los datos no se pueden recuperar.</strong>{' '}
+              No hay puerta trasera, ni soporte, ni nube que los rescate: es el precio de que nadie más pueda leerlos.
+            </span>
+          </div>
         </div>
 
       </div>
