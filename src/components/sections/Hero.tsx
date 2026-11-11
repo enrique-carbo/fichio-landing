@@ -43,12 +43,13 @@ export const Hero: React.FC<HeroProps> = ({ onOpenDownload, onOpenDemo }) => {
 
             {/* Display Headline with text-wrap: balance */}
             <h1 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight text-neutral-950 dark:text-white leading-[1.15]" style={{ textWrap: 'balance' }}>
-              La historia clínica digital donde tus datos <span className="text-brand-700 dark:text-brand-400">nunca salen</span> de tu consultorio.
+              La historia clínica digital donde vos tenés el <span className="text-brand-700 dark:text-brand-400">control total y absoluto de tus datos</span>.
             </h1>
 
             {/* Subtitle */}
             <p className="text-base sm:text-lg text-neutral-600 dark:text-neutral-300 leading-relaxed max-w-2xl">
-              Software de escritorio nativo de alto rendimiento para <strong>médicos, veterinarios, psicólogos y especialistas</strong>. Funciona 100% offline, cifra cada evolución antes de persistirla y sella el historial con firma digital Ed25519.
+            Software de gestión clínica para <strong>médicos, veterinarios, psicólogos, kinesiólogos, enfermeros y agentes de salud</strong>.
+            Funciona 100% offline, sin internet, resguarda de forma segura los datos confidenciales de tus pacientes y sella el historial con firma digital.
             </p>
 
             {/* Action buttons */}
@@ -68,7 +69,7 @@ export const Hero: React.FC<HeroProps> = ({ onOpenDownload, onOpenDemo }) => {
                 className="inline-flex items-center justify-center gap-2 px-5 py-3 text-sm font-medium text-neutral-800 dark:text-neutral-200 bg-white dark:bg-neutral-900 border border-neutral-300 dark:border-neutral-700 rounded-lg hover:bg-neutral-100 dark:hover:bg-neutral-800 transition-colors whitespace-nowrap"
               >
                 <Play className="w-4 h-4 text-brand-600 dark:text-brand-400" />
-                <span>Ver Sandbox Interactivo</span>
+                <span>Probar Sandbox</span>
               </button>
             </div>
 
@@ -187,7 +188,7 @@ export const Hero: React.FC<HeroProps> = ({ onOpenDownload, onOpenDemo }) => {
         <div className="mt-14 grid grid-cols-2 md:grid-cols-4 gap-4 pt-8 border-t border-neutral-200 dark:border-neutral-800">
           <div className="space-y-1">
             <div className="flex items-center gap-2 text-sm font-semibold text-neutral-900 dark:text-neutral-100">
-              <HardDrive className="w-4 h-4 text-brand-600 dark:text-brand-400" />
+              <HardDrive className="hidden sm:inline-flex w-4 h-4 text-brand-600 dark:text-brand-400" />
               <span>Local-First</span>
             </div>
             <p className="text-xs text-neutral-500 dark:text-neutral-400">
@@ -197,7 +198,7 @@ export const Hero: React.FC<HeroProps> = ({ onOpenDownload, onOpenDemo }) => {
 
           <div className="space-y-1">
             <div className="flex items-center gap-2 text-sm font-semibold text-neutral-900 dark:text-neutral-100">
-              <Lock className="w-4 h-4 text-brand-600 dark:text-brand-400" />
+              <Lock className="hidden sm:inline-flex w-4 h-4 text-brand-600 dark:text-brand-400" />
               <span>Zero-Knowledge Parcial</span>
             </div>
             <p className="text-xs text-neutral-500 dark:text-neutral-400">
@@ -207,7 +208,7 @@ export const Hero: React.FC<HeroProps> = ({ onOpenDownload, onOpenDemo }) => {
 
           <div className="space-y-1">
             <div className="flex items-center gap-2 text-sm font-semibold text-neutral-900 dark:text-neutral-100">
-              <FileSignature className="w-4 h-4 text-brand-600 dark:text-brand-400" />
+              <FileSignature className="hidden sm:inline-flex w-4 h-4 text-brand-600 dark:text-brand-400" />
               <span>No-Repudio</span>
             </div>
             <p className="text-xs text-neutral-500 dark:text-neutral-400">
@@ -217,7 +218,7 @@ export const Hero: React.FC<HeroProps> = ({ onOpenDownload, onOpenDemo }) => {
 
           <div className="space-y-1">
             <div className="flex items-center gap-2 text-sm font-semibold text-neutral-900 dark:text-neutral-100">
-              <Shield className="w-4 h-4 text-brand-600 dark:text-brand-400" />
+              <Shield className="hidden sm:inline-flex w-4 h-4 text-brand-600 dark:text-brand-400" />
               <span>Frase Semilla</span>
             </div>
             <p className="text-xs text-neutral-500 dark:text-neutral-400">

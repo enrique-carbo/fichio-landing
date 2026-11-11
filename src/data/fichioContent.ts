@@ -30,7 +30,7 @@ export const GUIDE_STEPS: GuideStep[] = [
       'La primera vez la instalación está vacía. Creás la cuenta de administrador y configurás la frase semilla de 6 palabras, que es el respaldo maestro de la instalación.',
     actions: [
       'Creá el primer administrador con usuario y contraseña de mínimo 8 caracteres: esa cuenta da de alta al resto del equipo y resetea contraseñas.',
-      'Generá la frase semilla, anotá las 6 palabras en papel y verificá re-escribiéndolas.',
+      'Generá la frase semilla, anotá las 6 palabras en papel por duplicado y verificá re-escribiéndolas.',
       'La frase no se guarda en la app: solo existe en tu papel y en RAM mientras la usás.',
       'Después del primer administrador no hay registro libre: todos los usuarios los crea el administrador desde Usuarios.',
     ],
@@ -87,10 +87,10 @@ export const GUIDE_STEPS: GuideStep[] = [
     title: 'Exportar y respaldar',
     summary: 'Markdown firmado y copia semanal',
     intro:
-      'La historia completa se exporta a Markdown firmado y el respaldo se genera en la carpeta que elijas: disco externo, NAS o nube.',
+      'La historia completa de cada paciente se exporta a Markdown firmado y el respaldo se genera en la carpeta que elijas: disco externo, NAS o nube.',
     actions: [
       'Entries → Exportar .md: el archivo incluye filiación, perfil, entries, SHA-256 y firma Ed25519 del documento completo.',
-      'Administración → Respaldos → Generar respaldo… y guardalo fuera de la PC.',
+      'Administración → Respaldos → Generar respaldo… y guardalo fuera de la PC por duplicado.',
       'El aviso de respaldos aparece a los 7 días sin copia o si nunca generaste una.',
       'Cerrá la bóveda al terminar la jornada: las claves se borran de la memoria.',
     ],
@@ -146,7 +146,7 @@ export const SPECIALTIES: SpecialtyData[] = [
       nombre: 'Carlos E. Méndez',
       identificador: 'DNI 32.841.902',
       edad: '44 años',
-      diagnosticoPrincipal: 'Hipertensión Arterial Grado I · Dislipidemia',
+      diagnosticoPrincipal: 'Hipertensión Arterial · Dislipemia',
       ultimaEvolucion: 'Control trimestral de presión. Buen cumplimiento del tratamiento.',
       alergias: ['Penicilina', 'Sulfas'],
       medicacionActual: ['Enalapril 10mg / día', 'Atorvastatina 20mg / noche'],
@@ -182,7 +182,7 @@ export const SPECIALTIES: SpecialtyData[] = [
       subjetivo: 'Tutor refiere apetito normal y actividad física habitual. No presenta episodios de vómito ni diarrea.',
       objetivo: 'Tº 38.6 ºC. Mucosas rosadas TLLC < 2 seg. Ganglios submandibulares normales. Otoscopía bilateral limpia.',
       analisis: 'Paciente canino normopeso con estado general óptimo para inmunización anual.',
-      plan: 'Aplicación de refuerzo séxtuple (Nobivac DHPPiL) y antirrábica. Desparasitación interna programada.',
+      plan: 'Aplicación de refuerzo séxtuple y antirrábica. Desparasitación interna programada.',
     },
   },
   {
@@ -195,7 +195,7 @@ export const SPECIALTIES: SpecialtyData[] = [
     imageSrc: '/src/assets/images/specialty_psychology_office_1791977203929.jpg',
     imageAlt: 'Consultorio privado de psicología con sillón y ambiente tranquilo',
     samplePatient: {
-      nombre: 'Laura B. (Registro Anónimo Cifrado)',
+      nombre: 'Laura B.',
       identificador: 'Expediente #P-2026-88',
       edad: '31 años',
       diagnosticoPrincipal: 'Trastorno de Ansiedad Generalizada (F41.1) en remisión parcial',
@@ -212,7 +212,7 @@ export const SPECIALTIES: SpecialtyData[] = [
   },
   {
     id: 'odontologia_kinesio',
-    title: 'Odontología, Kinesiología y Nutrición',
+    title: 'Kinesiología, Odontología y Nutrición',
     subtitle: 'Profesionales independientes, fisioterapeutas y centros de rehabilitación',
     tagline: 'Plantillas adaptables (SOAP, Alergias, Medicación, Condiciones) sin fricciones.',
     iconName: 'Activity',
