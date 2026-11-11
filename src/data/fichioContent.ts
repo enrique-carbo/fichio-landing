@@ -233,6 +233,29 @@ export const SPECIALTIES: SpecialtyData[] = [
       plan: 'Terapia manual descontracturante, electroanalgesia y progresión de carga excéntrica bilateral.',
     },
   },
+  {
+    id: 'enfermeria',
+    title: 'Enfermería y Agentes de Salud',
+    subtitle: 'Cuidados domiciliarios, curaciones y seguimiento de pacientes crónicos',
+    tagline: 'Registro de cuidados, medicación administrada y evolución de heridas con trazabilidad firmada.',
+    iconName: 'HeartPulse',
+    entityType: 'Humano',
+    samplePatient: {
+      nombre: 'Marta S. Ferreyra',
+      identificador: 'DNI 27.614.095',
+      edad: '67 años',
+      diagnosticoPrincipal: 'Úlcera venosa en miembro inferior derecho · Hipertensión arterial',
+      ultimaEvolucion: 'Tercera curación domiciliaria. Lecho con tejido de granulación y menor exudado.',
+      alergias: ['Látex', 'Penicilina'],
+      medicacionActual: ['Enalapril 10mg / día', 'Paracetamol 500mg condicional'],
+    },
+    sampleSoap: {
+      subjetivo: 'Paciente refiere menor dolor en la herida (EVA 3/10) y buen descanso nocturno. La familia colabora con la elevación del miembro.',
+      objetivo: 'PA 128/76 mmHg. FC 74 lpm. Úlcera de 4 x 3 cm en cara medial de pierna derecha, lecho con granulación, exudado seroso moderado, sin signos de infección.',
+      analisis: 'Evolución favorable de la úlcera venosa. Se mantiene el plan de curaciones y el control de factores de riesgo.',
+      plan: 'Curación con apósito hidrocoloide cada 48 h. Educación sobre elevación del miembro y signos de alarma. Próxima visita en 48 h.',
+    },
+  },
 ];
 
 export const SECURITY_PILLARS: SecurityFeature[] = [

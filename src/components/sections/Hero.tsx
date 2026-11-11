@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Shield, Lock, FileSignature, HardDrive, Download, Play, CheckCircle2, ChevronRight, Stethoscope, PawPrint, Brain, Award } from 'lucide-react';
+import { Shield, Lock, FileSignature, HardDrive, Download, Play, CheckCircle2, ChevronRight, Stethoscope, PawPrint, Brain, Award, HeartPulse } from 'lucide-react';
 import { SPECIALTIES, PRODUCT_VERSION, TEST_COUNTS } from '../../data/fichioContent';
 import { SpecialtyId } from '../../types';
 
@@ -96,6 +96,7 @@ export const Hero: React.FC<HeroProps> = ({ onOpenDownload, onOpenDemo }) => {
                       {spec.id === 'veterinaria' && <PawPrint className="w-3.5 h-3.5" />}
                       {spec.id === 'psicologia' && <Brain className="w-3.5 h-3.5" />}
                       {spec.id === 'odontologia_kinesio' && <Award className="w-3.5 h-3.5" />}
+                      {spec.id === 'enfermeria' && <HeartPulse className="w-3.5 h-3.5" />}
                       <span>{spec.title.split(' ')[0].replace(/,$/, '')}</span>
                     </button>
                   );

@@ -24,7 +24,7 @@ Construida con **React 19**, **TypeScript estricto**, **Tailwind CSS v4** y **Vi
 - Estado y datos de dominio centralizados en `src/data/fichioContent.ts` y fuertemente tipados en `src/types/index.ts`.
 
 ### 3. 🧪 Sandbox Clínico Interactivo en Vivo (`InteractiveDemo.tsx`)
-- **Selector de Especialidad**: Alterna en tiempo real entre *Medicina General*, *Veterinaria*, *Psicología* y *Kinesiología/Odontología*.
+- **Selector de Especialidad**: Alterna en tiempo real entre *Medicina General*, *Veterinaria*, *Psicología*, *Kinesiología/Odontología* y *Enfermería*.
 - **Editor de Evoluciones SOAP v1**: Formulario dinámico para registrar Subjetivo, Objetivo, Análisis y Plan.
 - **Sellado Criptográfico Ed25519**: Simulación de firma digital con hash canónico y adición al historial inmutable (*Append-Only*).
 - **Exportación Directa a Markdown (.md)**: Generación instantánea del archivo `.md` de la historia clínica con formato canónico, firma Ed25519 del documento y hash de verificación SHA-256 en el footer, listo para copiar o descargar al disco.
@@ -45,6 +45,7 @@ Construida con **React 19**, **TypeScript estricto**, **Tailwind CSS v4** y **Vi
 - **Veterinaria y Animales de Compañía**: Esquema tipado paciente animal + tutor/responsable legal.
 - **Psicología y Psiquiatría**: Cifrado campo a campo en reposo y RAM, con acceso clínico limitado por rol y autorización (la DataKey es compartida por instalación).
 - **Kinesiología, Odontología y Nutrición**: Plantillas de rehabilitación y evolución cronológica definidas en JSON y embebidas en el build (offline e inmutables en runtime).
+- **Enfermería y Agentes de Salud**: Cuidados domiciliarios, curaciones, control de signos vitales y evolución de heridas, con el profesional firmante propio del sandbox (`Enf. Carla Domínguez · M.P. 6.215`).
 
 ### 6. ⚖️ Comparativa Estructural y Ficha Técnica (`FeatureComparison.tsx` & `TechSpecs.tsx`)
 - Tabla comparativa directa: **Fichio (Local-First)** frente al **SaaS Médico tradicional en la Nube**.

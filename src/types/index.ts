@@ -1,4 +1,4 @@
-export type SpecialtyId = 'medicina' | 'veterinaria' | 'psicologia' | 'odontologia_kinesio';
+export type SpecialtyId = 'medicina' | 'veterinaria' | 'psicologia' | 'odontologia_kinesio' | 'enfermeria';
 
 export interface SpecialtyData {
   id: SpecialtyId;

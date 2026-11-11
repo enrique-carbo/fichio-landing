@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Stethoscope, PawPrint, Brain, Activity, ShieldCheck, FileText, CheckCircle2, Copy, Download, RefreshCw, Lock, Sparkles, Send } from 'lucide-react';
+import { Stethoscope, PawPrint, Brain, Activity, HeartPulse, ShieldCheck, FileText, CheckCircle2, Copy, Download, RefreshCw, Lock, Sparkles, Send } from 'lucide-react';
 import { SPECIALTIES, PRODUCT_VERSION } from '../../data/fichioContent';
 import { SpecialtyId } from '../../types';
 
@@ -24,6 +24,15 @@ interface InteractiveDemoProps {
   initialSpecialty?: SpecialtyId;
 }
 
+/** Firmante de ejemplo por especialidad, para que el sandbox no firme siempre con la médica. */
+const SPECIALTY_SIGNERS: Record<SpecialtyId, { author: string; authorRole: string }> = {
+  medicina: { author: 'Dra. Valeria Gómez', authorRole: 'Médica Clínica · M.N. 142.809' },
+  veterinaria: { author: 'Dr. Martín Rossi', authorRole: 'Medicina Veterinaria · M.V. 8.412' },
+  psicologia: { author: 'Lic. Elena Ramos', authorRole: 'Psicoterapia Cognitiva · M.N. 49.301' },
+  odontologia_kinesio: { author: 'Lic. Lucía Ferreyra', authorRole: 'Kinesiología · M.N. 12.874' },
+  enfermeria: { author: 'Enf. Carla Domínguez', authorRole: 'Enfermería · M.P. 6.215' },
+};
+
 export const InteractiveDemo: React.FC<InteractiveDemoProps> = ({ initialSpecialty = 'medicina' }) => {
   const [activeSpecialty, setActiveSpecialty] = useState<SpecialtyId>(initialSpecialty);
   const [activeTab, setActiveTab] = useState<'ehr' | 'export_md'>('ehr');
@@ -40,8 +49,8 @@ export const InteractiveDemo: React.FC<InteractiveDemoProps> = ({ initialSpecial
       category: 'SOAP_NOTE',
       title: 'Evolución de Control Trimestral',
       timestamp: '2026-10-10 10:30',
-      author: 'Dra. Valeria Gómez',
-      authorRole: 'Médica Clínica · M.N. 142.809',
+      author: SPECIALTY_SIGNERS[initialSpecialty].author,
+      authorRole: SPECIALTY_SIGNERS[initialSpecialty].authorRole,
       content: { ...specialty.sampleSoap },
       signature: 'ed25519:7f8a9b2c3d4e5f6a1b2c3d4e5f6a7b8c9d0e1f2a3b4c5d6e7f8a9b0c1d2e3f4a',
       status: 'ACTIVE',
@@ -63,14 +72,15 @@ export const InteractiveDemo: React.FC<InteractiveDemoProps> = ({ initialSpecial
   const handleSpecialtyChange = (id: SpecialtyId) => {
     setActiveSpecialty(id);
     const selected = SPECIALTIES.find((s) => s.id === id) || SPECIALTIES[0];
+    const signer = SPECIALTY_SIGNERS[id];
     setEntries([
       {
         id: `entry-${Date.now()}`,
         category: 'SOAP_NOTE',
         title: 'Consulta Inicial / Registro Canónico',
         timestamp: '2026-10-14 09:15',
-        author: id === 'veterinaria' ? 'Dr. Martín Rossi (M.V. 8.412)' : id === 'psicologia' ? 'Lic. Elena Ramos (M.N. 49.301)' : 'Dra. Valeria Gómez (M.N. 142.809)',
-        authorRole: id === 'veterinaria' ? 'Medicina Veterinaria' : id === 'psicologia' ? 'Psicoterapia Cognitiva' : 'Medicina General',
+        author: signer.author,
+        authorRole: signer.authorRole,
         content: { ...selected.sampleSoap },
         signature: 'ed25519:' + Math.random().toString(36).substring(2) + Math.random().toString(36).substring(2),
         status: 'ACTIVE',
@@ -90,8 +100,8 @@ export const InteractiveDemo: React.FC<InteractiveDemoProps> = ({ initialSpecial
         category: 'SOAP_NOTE',
         title: newTitle || 'Evolución Clínica',
         timestamp: new Date().toISOString().replace('T', ' ').substring(0, 16),
-        author: activeSpecialty === 'veterinaria' ? 'Dr. Martín Rossi (M.V. 8.412)' : activeSpecialty === 'psicologia' ? 'Lic. Elena Ramos (M.N. 49.301)' : 'Dra. Valeria Gómez (M.N. 142.809)',
-        authorRole: activeSpecialty === 'veterinaria' ? 'Medicina Veterinaria' : activeSpecialty === 'psicologia' ? 'Psicoterapia Cognitiva' : 'Medicina General',
+        author: SPECIALTY_SIGNERS[activeSpecialty].author,
+        authorRole: SPECIALTY_SIGNERS[activeSpecialty].authorRole,
         content: {
           subjetivo: newSubjetivo,
           objetivo: newObjetivo,
@@ -225,6 +235,7 @@ ${e.content.plan}
                   {spec.id === 'veterinaria' && <PawPrint className="w-3.5 h-3.5" />}
                   {spec.id === 'psicologia' && <Brain className="w-3.5 h-3.5" />}
                   {spec.id === 'odontologia_kinesio' && <Activity className="w-3.5 h-3.5" />}
+                  {spec.id === 'enfermeria' && <HeartPulse className="w-3.5 h-3.5" />}
                   <span>{spec.title.split(' ')[0].replace(/,$/, '')}</span>
                 </button>
               );

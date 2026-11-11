@@ -15,6 +15,7 @@ const SPECIALTY_OPTIONS = [
   { value: 'psicologia', label: 'Psicología / Salud Mental' },
   { value: 'odontologia', label: 'Odontología' },
   { value: 'kinesiologia', label: 'Kinesiología / Fisioterapia' },
+  { value: 'enfermeria', label: 'Enfermería / Cuidados Domiciliarios' },
   { value: 'centro_medico', label: 'Centro Médico Multidisciplinario' },
 ];
 
