@@ -6,14 +6,14 @@ export const TechSpecs: React.FC = () => {
   return (
     <section id="arquitectura" className="py-20 border-b border-neutral-200 dark:border-neutral-800">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        
+
         {/* Section Header */}
         <div className="max-w-3xl mb-12">
           <div className="text-xs font-semibold text-brand-700 dark:text-brand-400 tracking-wide mb-2">
             05. ESPECIFICACIONES Y STACK TÉCNICO
           </div>
           <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold tracking-tight text-neutral-950 dark:text-white" style={{ textWrap: 'balance' }}>
-            Ingeniería de sistemas para una práctica médica ininterrumpida.
+            Ingeniería de sistemas para una práctica sanitaria ininterrumpida.
           </h2>
           <p className="mt-3 text-base text-neutral-600 dark:text-neutral-300">
             Fichio divide su arquitectura de forma estricta entre un núcleo de seguridad en Rust y una interfaz reactiva en TypeScript. Sin capas innecesarias ni telemetría invasiva.
@@ -22,7 +22,7 @@ export const TechSpecs: React.FC = () => {
 
         {/* 2-Column Split: Tech Specs Grid + Architecture Diagram */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
-          
+
           {/* Left Column: Tech Spec Rows */}
           <div className="lg:col-span-6 space-y-4">
             <div className="rounded-2xl border border-neutral-200 dark:border-neutral-800 bg-white dark:bg-neutral-900 p-6 space-y-4 shadow-xs">
