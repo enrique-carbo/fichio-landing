@@ -137,7 +137,7 @@ export const SPECIALTIES: SpecialtyData[] = [
     id: 'medicina',
     title: 'Medicina General y Especialidades',
     subtitle: 'Consultorios médicos, pediatría, cardiología y medicina interna',
-    tagline: 'Filiación completa, antecedentes clínicos y evoluciones firmadas con validez legal.',
+    tagline: 'Filiación completa, antecedentes clínicos y evoluciones con firma criptográfica verificable.',
     iconName: 'Stethoscope',
     entityType: 'Humano',
     imageSrc: '/src/assets/images/hero_fichio_workstation_1791977202707.jpg',
@@ -274,7 +274,7 @@ export const SECURITY_PILLARS: SecurityFeature[] = [
     mechanism: 'Ed25519 (Dalek) + JSON Canónico',
     benefit: 'No-Repudio e integridad verificable de cada evolución.',
     technicalBadge: 'Append-Only Inmutable',
-    detail: 'Cada evolución queda sellada con la clave privada Ed25519 del profesional sobre el JSON canónico de todos los campos persistidos. La corrección se hace con nuevas entradas: no existe update ni delete de historias clínicas.',
+    detail: 'Cada evolución queda sellada con la clave privada Ed25519 del profesional sobre el JSON canónico de todos los campos persistidos. La corrección se hace con nuevas entradas: no existe update ni delete de historias clínicas. La firma acredita integridad y autoría criptográfica; no equivale a firma digital certificada mientras no se integre una autoridad certificante.',
     codePath: 'src-tauri/src/security/crypto.rs',
   },
   {
@@ -335,8 +335,8 @@ export const COMPARISON_TABLE: ComparisonRow[] = [
     advantage: true,
   },
   {
-    feature: 'Validez Legal de Notas',
-    fichio: 'Firma Ed25519 por entrada y del documento exportado (Append-Only)',
+    feature: 'Integridad y Autoría de las Notas',
+    fichio: 'Firma Ed25519 por entrada y del documento exportado, verificable con la clave pública',
     traditional: 'Simples registros editables en bases de datos MySQL/Postgres',
     advantage: true,
   },

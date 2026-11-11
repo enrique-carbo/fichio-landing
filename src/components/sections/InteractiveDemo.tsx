@@ -153,7 +153,7 @@ ${entries
 - **Fecha y Hora**: ${e.timestamp}
 - **Profesional Firmante**: ${e.author} (${e.authorRole})
 - **Estado**: ${e.status}
-- **Firma Ed25519 (No-Repudio)**: ✓ VÁLIDA \`${e.signature.substring(0, 28)}...\`
+- **Firma Ed25519 (No-Repudio)**: ✓ VERIFICADA \`${e.signature.substring(0, 28)}...\`
 
 #### Subjetivo (S):
 ${e.content.subjetivo}
@@ -177,6 +177,7 @@ ${e.content.plan}
 - **Fingerprint de la clave pública**: SHA-256:4b7e2d9a...firmante
 - **Integridad SHA-256 del contenido**: 8e2a3b4c5d6e7f8a9b0c1d2e3f4a5b6c7d8e9f0a1b2c3d4e5f6a7b8c9d0e1f2a
 - **Ubicación de emisión**: exports/ (carpeta local de la aplicación)
+- **Alcance de la firma**: acredita integridad y autoría criptográfica del registro. No constituye firma digital certificada mientras no intervenga una autoridad certificante.
 - **Aviso de Confidencialidad**: Este documento contiene información médica protegida por secreto profesional y normativa de protección de datos personales.`;
   };
 
@@ -478,7 +479,7 @@ ${e.content.plan}
                           Firma: {entry.signature.substring(0, 24)}...
                         </span>
                         <span className="text-brand-600 dark:text-brand-400 font-semibold">
-                          ✓ No-Repudio Legal
+                          ✓ Firma verificable
                         </span>
                       </div>
                     </div>

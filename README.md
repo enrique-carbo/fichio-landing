@@ -32,7 +32,7 @@ Construida con **React 19**, **TypeScript estricto**, **Tailwind CSS v4** y **Vi
 ### 4. 🔒 Inspector de Criptografía y Seguridad (`SecurityArchitecture.tsx`)
 - Desglose detallado de los 6 pilares de seguridad del Core nativo en Rust:
   1. **Criptografía en RAM con Zero-Knowledge Parcial**: AES-GCM-256 + Argon2id para el wrap de la DataKey, con limpieza `zeroize` *best-effort* al cerrar sesión. Protege el disco, no aísla a los co-usuarios de la misma instalación.
-  2. **Firma Digital Asimétrica por Entry**: Ed25519 sobre JSON canónico de todos los campos persistidos y garantía de No-Repudio.
+  2. **Firma Digital Asimétrica por Entry**: Ed25519 sobre JSON canónico de todos los campos persistidos. Aporta evidencia criptográfica de integridad y autoría, verificable con la clave pública; no sustituye la firma digital certificada de la Ley 25.506 mientras no intervenga una autoridad certificante.
   3. **Búsqueda por Índice Ciego**: HMAC-SHA256 Blind Index para consultar por DNI sin descifrar la base de datos.
   4. **Recuperación Soberana Break-Glass**: Frase semilla de 6 palabras en papel, verificada contra el master wrap con Argon2id (sal de dominio `fichio/seed-kdf/v1`); restablece la contraseña del administrador más antiguo y queda auditada. La DataKey no cambia.
   5. **Autonomía 100% Offline (Local-First)**: SQLite (rusqlite) embebido en modo WAL, sin depender de internet ni de servidores caídos.

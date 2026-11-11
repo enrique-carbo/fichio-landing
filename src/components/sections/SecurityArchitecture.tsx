@@ -84,6 +84,9 @@ writeln!(writer, "Fichio · Verificado por firma digital Ed25519")?;`,
           <p className="mt-3 text-xs text-neutral-500 dark:text-neutral-400 border-l-2 border-brand-500/60 pl-3">
             <strong className="text-neutral-700 dark:text-neutral-300">Alcance honesto:</strong> el Zero-Knowledge es parcial. Protege el disco frente a quien no tenga la contraseña o la frase semilla, pero no aísla criptográficamente a los co-usuarios de la misma instalación: la DataKey es compartida por diseño. El rol <em>paciente</em> no la posee.
           </p>
+          <p className="mt-2 text-xs text-neutral-500 dark:text-neutral-400 border-l-2 border-brand-500/60 pl-3">
+            <strong className="text-neutral-700 dark:text-neutral-300">Alcance de la firma:</strong> Ed25519 acredita integridad y autoría criptográfica, y cualquier tercero puede verificarla con la clave pública. No reemplaza a la firma digital certificada de la Ley 25.506 mientras no se integre una autoridad certificante; sí prueba que el registro no fue alterado desde que se selló.
+          </p>
         </div>
 
         {/* Interactive Cryptographic Inspector */}

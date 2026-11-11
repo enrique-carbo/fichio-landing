@@ -49,7 +49,7 @@ export const Hero: React.FC<HeroProps> = ({ onOpenDownload, onOpenDemo }) => {
             {/* Subtitle */}
             <p className="text-base sm:text-lg text-neutral-600 dark:text-neutral-300 leading-relaxed max-w-2xl">
             Software de gestión clínica para <strong>médicos, veterinarios, psicólogos, kinesiólogos, enfermeros y agentes de salud</strong>.
-            Funciona 100% offline, sin internet, resguarda de forma segura los datos confidenciales de tus pacientes y sella el historial con firma digital.
+            Funciona 100% offline, sin internet, resguarda de forma segura los datos confidenciales de tus pacientes y sella el historial con firma criptográfica verificable.
             </p>
 
             {/* Action buttons */}
