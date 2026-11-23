@@ -78,7 +78,7 @@ export const DownloadWaitlist: React.FC = () => {
             Beta {PRODUCT_VERSION} compilada en Rust con Tauri v2. Los instaladores se publican en GitHub Releases; macOS está en el roadmap.
           </p>
           <p className="mt-2 text-xs text-neutral-500 dark:text-neutral-400">
-            Actualización sin migraciones: la base y los respaldos de 0.1.x se abren tal cual. Respaldá antes de actualizar.
+            Actualización sin migraciones desde 0.3.0: la base y los respaldos se abren tal cual. Si venís de 0.2.0, la migración v002 corre sola. Respaldá antes de actualizar.
           </p>
           <div className="mt-4 flex flex-wrap items-center gap-2 text-xs">
             <span className="px-2.5 py-1 rounded-full bg-brand-50 dark:bg-brand-950/60 border border-brand-200 dark:border-brand-800/60 text-brand-800 dark:text-brand-300 font-semibold">

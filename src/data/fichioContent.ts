@@ -1,8 +1,8 @@
 import { SpecialtyData, SecurityFeature, ComparisonRow, GuideStep } from '../types';
 
 /** Fuente única de los datos de producto que también se muestran en la UI. */
-export const PRODUCT_VERSION = '0.2.0';
-export const TEST_COUNTS = { rust: 138, frontend: 73 };
+export const PRODUCT_VERSION = '0.3.1';
+export const TEST_COUNTS = { rust: 202, frontend: 143 };
 export const CORE_LICENSE = 'AGPL-3.0-or-later';
 
 /** Guía del profesional — destilada de docs/guia-usuario.md. */
@@ -75,7 +75,7 @@ export const GUIDE_STEPS: GuideStep[] = [
       'Las entries son la evolución clínica: se cifran antes de tocar el disco y se firman con Ed25519. Son inmutables: no se editan ni se borran.',
     actions: [
       'Elegí la categoría: Nota SOAP, Alergia, Medicación o Diagnóstico, y completá título, estado y campos.',
-      'Desde la 0.2.0 también podés crear la nota SOAP desde la ficha del paciente, con la categoría ya fijada.',
+      'La nota SOAP también se crea desde la ficha del paciente, con la categoría ya fijada.',
       'Cada card muestra «Firmado: nombre · profesión» y el estado Verificada o Sin verificar.',
       'Filtrá por categoría o buscá por título para encontrar una evolución en el timeline.',
     ],
@@ -111,24 +111,24 @@ export const VET_DIFFERENCES = [
 /** Novedades de la release vigente (fuente: GitHub Releases). */
 export const RELEASE_HIGHLIGHTS = [
   {
-    title: 'Nota SOAP desde la ficha del paciente',
+    title: 'Módulo de solicitudes de estudios',
     description:
-      'El historial de la ficha tiene un botón Nueva nota SOAP que abre el formulario ahí mismo, con la categoría ya fijada. Si cambiás de paciente, se cierra solo: la nota nunca se firma en la ficha equivocada.',
+      'Creá templates por profesional, tildá los estudios en un checklist y sumá diagnóstico y notas. La solicitud emitida queda autocontenida: editar o borrar un template no cambia lo ya pedido. Se puede ver, descargar en .md/.html, compartir o imprimir (PDF por el diálogo del sistema); el resultado clínico sigue viviendo en la nota SOAP.',
   },
   {
-    title: 'Tema oscuro más legible',
+    title: 'Módulos activables por instalación',
     description:
-      'Subimos un escalón el contraste de todos los textos. El texto de apoyo sobre paneles elevados pasó de ~3:1 a ~6:1.',
+      'Desde Administración → Módulos activás o desactivás el módulo de solicitudes. Desactivarlo lo oculta sin borrar su base; reactivarlo conserva los datos. Después de actualizar arranca inactivo y crea fichio-solicitudes.db recién al activarse.',
   },
   {
-    title: 'Recordatorio de respaldos',
+    title: 'Paciente activo siempre visible',
     description:
-      'Un banner muestra cuándo fue el último respaldo y avisa si pasaron 7 días o si nunca se generó uno.',
+      'En Historia Clínica, Solicitudes y Entries una barra muestra Paciente: Nombre Apellido · DNI / Documento para confirmar sobre quién estás trabajando. El panel de solicitudes se puede colapsar sin perder un borrador, y la navegación, las acciones y las categorías usan iconos Lucide con diálogos más accesibles.',
   },
   {
-    title: 'Versión y "Acerca de"',
+    title: 'Descarga de solicitudes corregida (0.3.1)',
     description:
-      'La versión aparece en el pie del menú y en el login; al hacer clic se abre el detalle con licencia y acceso a descargas.',
+      'Los archivos .md y .html de una solicitud ahora se guardan con el diálogo nativo del sistema y se escriben desde Rust; antes el webview ignoraba la descarga del navegador. «Imprimir / PDF» no estaba afectado. En mobile o tablet, usá Compartir con el sharesheet del sistema.',
   },
 ];
 
@@ -363,7 +363,8 @@ export const COMPARISON_TABLE: ComparisonRow[] = [
 export const TECH_SPECS = [
   { label: 'Motor Criptográfico', value: 'Rust nativo (AES-GCM-256, Ed25519, Argon2id, SHA-256)' },
   { label: 'Persistencia Local', value: 'SQLite (rusqlite) embebido en WAL, sin servidor de BD' },
-  { label: 'Modelo Clínico', value: 'Entries append-only firmadas; sin update ni delete' },
+  { label: 'Modelo Clínico', value: 'Entries append-only firmadas; sin update ni delete; solicitudes autocontenidas' },
+  { label: 'Módulos', value: 'Solicitudes de estudios con DB propia (fichio-solicitudes.db) y activación por instalación' },
   { label: 'Respaldos', value: 'manifest.json firmado (SHA-256 + Ed25519)' },
   {
     label: 'Requisitos de Instalación',
